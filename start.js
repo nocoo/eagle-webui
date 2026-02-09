@@ -23,6 +23,22 @@ function parseCliArgs() {
       type: "string",
       default: "http://localhost:41595",
     },
+    "google-client-id": {
+      type: "string",
+      default: "",
+    },
+    "google-client-secret": {
+      type: "string",
+      default: "",
+    },
+    "auth-secret": {
+      type: "string",
+      default: "",
+    },
+    "allowed-emails": {
+      type: "string",
+      default: "",
+    },
     help: {
       type: "boolean",
       short: "h",
@@ -60,6 +76,10 @@ Options:
   --port PORT, -p PORT         Server port number (default: 6001)
   --eagle-library-path PATH    Path to the Eagle library folder (if omitted, detected automatically via Eagle API)
   --eagle-api-url URL          Eagle API endpoint for library detection (default: http://localhost:41595)
+  --google-client-id ID        Google OAuth client ID (required for authentication)
+  --google-client-secret SEC   Google OAuth client secret (required for authentication)
+  --auth-secret SECRET         Secret for signing auth tokens (required for authentication)
+  --allowed-emails EMAILS      Comma-separated list of allowed email addresses
   --help, -h                   Display this help message
 
 Examples:
@@ -75,5 +95,19 @@ process.env.HOSTNAME = args.hostname;
 process.env.PORT = args.port;
 process.env.EAGLE_LIBRARY_PATH = args["eagle-library-path"];
 process.env.EAGLE_API_URL = args["eagle-api-url"];
+
+// Auth environment variables
+if (args["google-client-id"]) {
+  process.env.GOOGLE_CLIENT_ID = args["google-client-id"];
+}
+if (args["google-client-secret"]) {
+  process.env.GOOGLE_CLIENT_SECRET = args["google-client-secret"];
+}
+if (args["auth-secret"]) {
+  process.env.AUTH_SECRET = args["auth-secret"];
+}
+if (args["allowed-emails"]) {
+  process.env.ALLOWED_EMAILS = args["allowed-emails"];
+}
 
 require(path.resolve(__dirname, ".next/standalone/server.js"));
