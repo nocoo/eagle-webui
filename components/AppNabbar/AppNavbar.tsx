@@ -14,6 +14,7 @@ import type { NavbarExpandedState } from "@/data/settings";
 import type { SmartFolder } from "@/data/smart-folders";
 import type { Folder, ItemCounts } from "@/data/types";
 import { useTranslations } from "@/i18n/client";
+import { SignOutButton } from "../SignOutButton";
 import classes from "./AppNavbar.module.css";
 import { FolderSection } from "./FolderSection";
 import { MainLink } from "./MainLink";
@@ -133,6 +134,7 @@ export function AppNavbar({
             label={t("navbar.settings")}
             onClick={handleMainLinkClick}
           />
+          <SignOutButton label={t("navbar.signOut")} />
         </section>
       </AppShell.Section>
     </AppShell.Navbar>

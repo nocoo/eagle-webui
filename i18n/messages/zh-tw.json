@@ -57,7 +57,8 @@
   "navbar": {
     "folders": "資料夾",
     "settings": "設定",
-    "smartFolders": "智慧資料夾"
+    "smartFolders": "智慧資料夾",
+    "signOut": "登出"
   },
   "common": {
     "library": {

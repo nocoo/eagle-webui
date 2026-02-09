@@ -57,7 +57,8 @@
   "navbar": {
     "folders": "文件夹",
     "settings": "设置",
-    "smartFolders": "智能文件夹"
+    "smartFolders": "智能文件夹",
+    "signOut": "退出登录"
   },
   "common": {
     "library": {

@@ -57,7 +57,8 @@
   "navbar": {
     "folders": "Folders",
     "settings": "Settings",
-    "smartFolders": "Smart Folders"
+    "smartFolders": "Smart Folders",
+    "signOut": "Sign out"
   },
   "common": {
     "library": {
