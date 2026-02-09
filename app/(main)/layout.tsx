@@ -14,6 +14,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AppLayout } from "@/components/AppLayout";
 import { AppMantineProvider } from "@/components/AppMantineProvider";
+import { AuthProvider } from "@/components/AuthProvider";
 import { ImportErrorScreen } from "@/components/ImportErrorScreen";
 import { ImportLoader } from "@/components/ImportLoader";
 import { loadNavbarExpandedState } from "@/data/settings";
@@ -48,13 +49,18 @@ export default async function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <NextIntlClientProvider>
-          <AppMantineProvider>
-            <ImportStateContent state={importState} loadingLabel={loadingLabel}>
-              {children}
-            </ImportStateContent>
-          </AppMantineProvider>
-        </NextIntlClientProvider>
+        <AuthProvider>
+          <NextIntlClientProvider>
+            <AppMantineProvider>
+              <ImportStateContent
+                state={importState}
+                loadingLabel={loadingLabel}
+              >
+                {children}
+              </ImportStateContent>
+            </AppMantineProvider>
+          </NextIntlClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );
