@@ -34,7 +34,7 @@
     "README.md"
   ],
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack --port 6001",
     "build": "next build --turbopack && cp -r .next/static .next/standalone/.next/",
     "start": "next start",
     "lint": "biome check",

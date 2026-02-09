@@ -13,7 +13,7 @@ function parseCliArgs() {
     port: {
       type: "string",
       short: "p",
-      default: "34917",
+      default: "6001",
     },
     "eagle-library-path": {
       type: "string",
@@ -57,7 +57,7 @@ Usage: npx @naamiru/eagle-webui [options]
 
 Options:
   --hostname HOST, -H HOST     Bind server to specific hostname or IP address (default: localhost)
-  --port PORT, -p PORT         Server port number (default: 34917)
+  --port PORT, -p PORT         Server port number (default: 6001)
   --eagle-library-path PATH    Path to the Eagle library folder (if omitted, detected automatically via Eagle API)
   --eagle-api-url URL          Eagle API endpoint for library detection (default: http://localhost:41595)
   --help, -h                   Display this help message
