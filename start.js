@@ -39,6 +39,10 @@ function parseCliArgs() {
       type: "string",
       default: "",
     },
+    "auth-url": {
+      type: "string",
+      default: "",
+    },
     help: {
       type: "boolean",
       short: "h",
@@ -80,6 +84,7 @@ Options:
   --google-client-secret SEC   Google OAuth client secret (required for authentication)
   --auth-secret SECRET         Secret for signing auth tokens (required for authentication)
   --allowed-emails EMAILS      Comma-separated list of allowed email addresses
+  --auth-url URL               Base URL for auth callbacks (e.g., https://eagle.example.com)
   --help, -h                   Display this help message
 
 Examples:
@@ -108,6 +113,9 @@ if (args["auth-secret"]) {
 }
 if (args["allowed-emails"]) {
   process.env.ALLOWED_EMAILS = args["allowed-emails"];
+}
+if (args["auth-url"]) {
+  process.env.AUTH_URL = args["auth-url"];
 }
 
 require(path.resolve(__dirname, ".next/standalone/server.js"));
