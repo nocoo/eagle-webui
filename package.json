@@ -40,7 +40,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "test": "vitest",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "bun run build"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
