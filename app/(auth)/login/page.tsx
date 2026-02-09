@@ -12,8 +12,9 @@ import {
 import { IconBrandGoogle } from "@tabler/icons-react";
 import { useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { Suspense } from "react";
 
-export default function LoginPage() {
+function LoginContent() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
   const error = searchParams.get("error");
@@ -53,5 +54,13 @@ export default function LoginPage() {
         </Paper>
       </Center>
     </Container>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginContent />
+    </Suspense>
   );
 }
